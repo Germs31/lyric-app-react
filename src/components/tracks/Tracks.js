@@ -9,14 +9,14 @@ class Tracks extends Component {
             <Consumer>
                 {value => {
                     console.log(value , '<-- from tracks')
-                    if( value.tracks_list === undefined || value.tracks_list.length === 0){
+                    if( value.track_list === undefined || value.track_list.length === 0){
                         return <Spinner />
                     }else{
                         return (
                             <React.Fragment>
                                 <h3 className="text-center mb-4">{value.heading}</h3>
                                 <div className="row">
-                                    {value.tracks_list.map(item => (
+                                    {value.track_list.map(item => (
                                         <Track key={item.track.track_id} track={item.track}/>
                                     ))}
                                 </div>

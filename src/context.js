@@ -18,7 +18,7 @@ const reducer = (state, action ) => {
 
 export class Provider extends Component {
     state = {
-        tracks_list: [],
+        track_list: [],
         heading:'Top Ten Tracks',
         dispatch: action => this.setState(state => reducer(state, action))
     }
@@ -27,7 +27,7 @@ export class Provider extends Component {
         axios.get(`https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/chart.tracks.get?page=1&page_size=10&country=US&f_has_lyrics=1&apikey=${process.env.REACT_APP_MM_KEY}`)
             .then(res => {
                 // console.log(res.data)
-                this.setState({tracks_list: res.data.message.body.track_list})
+                this.setState({track_list: res.data.message.body.track_list})
             })
             .catch(err => console.log(err))
     }
